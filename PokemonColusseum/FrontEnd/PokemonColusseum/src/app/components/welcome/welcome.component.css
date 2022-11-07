@@ -1,0 +1,38 @@
+.info-container{
+    margin: 1em;
+}
+
+.activity-container{
+    height: 120px;
+    width: fit-content;
+    overflow: auto;
+    padding-right: 20px;
+    padding-left: 10px;
+    padding-top: 5px;
+    border-style: double;
+    border-width: 3px;
+    background-color: rgb(63, 59, 59);
+    backdrop-filter: blur(20px);
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: black; 
+    border-radius: 15px;
+    width: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #3b0101; 
+  }

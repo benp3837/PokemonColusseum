@@ -1,0 +1,93 @@
+<div class="grid-container">
+            
+        <div class="party-card">
+
+            <h5 class="party-header">Your Party:</h5> 
+    
+            <span class="party-section" *ngIf="chosenParty.pokemon1 as pokemon"> <!---->   
+                <p>
+                    {{pokemon.name}}  
+                </p> 
+                <p>
+                    <img src="{{pokemon.sprite1}}" alt="please" >
+                </p>
+            </span>
+    
+            <span *ngIf="chosenParty.pokemon2 as pokemon" class="party-section"> <!---->
+                <p>
+                    {{pokemon.name}}  
+                </p> 
+                <p>
+                    <img src="{{pokemon.sprite1}}" alt="please" >     
+                </p>
+            </span>        
+    
+            <span *ngIf="chosenParty.pokemon3 as pokemon" class="party-section"> <!---->
+                <p>
+                    {{pokemon.name}}  
+                </p>
+                <p>
+                    <img src="{{pokemon.sprite1}}" alt="please" >     
+                </p>
+            </span>    
+    
+        </div>
+
+        <!-----------------------------vv BATTLE STUFF HERE vv----------------------------->
+
+        <div class="battle">
+
+            <div class="theirPoke">
+                <div class="info-box">
+                    <p>{{opponent.pokemon1.name}}</p>
+                    <p id="hp-bar">hp:     </p>
+                </div>
+                <img src="{{opponent.pokemon1.sprite1}}" alt="">
+            </div>
+
+            <div class="yourPoke">
+                <div class="info-box">
+                    <p>{{chosenParty.pokemon1.name}}</p>
+                    <p id="hp-bar">hp:     </p>
+                </div>
+                <img src="{{chosenParty.pokemon1.sprite2}}" alt="">
+            </div>
+
+        </div>
+
+        <!-----------------------------^^ BATTLE STUFF HERE ^^----------------------------->
+
+        <div class="opponent-party-card">
+
+            <h5 class="party-header">{{opponent.opponentClass}} {{opponent.opponentName}}</h5> 
+    
+            <span class="party-section" *ngIf="opponent.pokemon1 as pokemon"> <!---->
+                <p>
+                    {{pokemon.name}}  
+                </p> 
+                <p>
+                    <img src="{{pokemon.sprite1}}" alt="please" >
+                </p>
+            </span>
+    
+            <span *ngIf="opponent.pokemon2 as pokemon" class="party-section"> <!---->     
+                <p>
+                    {{pokemon.name}}  
+                </p> 
+                <p>
+                    <img src="{{pokemon.sprite1}}" alt="please" >     
+                </p>
+            </span>        
+    
+            <span *ngIf="opponent.pokemon3 as pokemon" class="party-section"> <!---->  
+                <p>
+                    {{pokemon.name}}  
+                </p> 
+                <p>
+                    <img src="{{pokemon.sprite1}}" alt="please" >     
+                </p>
+            </span>    
+    
+        </div>
+
+</div>

@@ -1,0 +1,26 @@
+/* background image changes based on what was chosen? idk how yet */
+
+body {
+    background-image: url("../../../../assets/pokebackground.jpg");
+}
+
+th, td {
+    color:white;
+    text-align: center;
+}
+
+#location {
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top:120px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 100%;
+    border-style: groove;
+    border-width: .2em;
+    border-color: rgb(96, 96, 205);
+}
+

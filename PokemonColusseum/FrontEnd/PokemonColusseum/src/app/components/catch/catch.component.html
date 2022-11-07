@@ -1,0 +1,62 @@
+<div class="container-fluid">
+
+    <h3 style="padding-top: .5em">Choose A Route: </h3>
+
+    <hr style="border-top: 1px solid #bbb">
+
+<!--
+    <details>
+        <summary>To Do (UI/UX)</summary>
+            <p>basically you can choose from multiple different terrains/biomes and the type of pokemon you find will change</p>
+            <p>so I'll need an "adventure" component that has different background pics depending on choice.</p>
+            <p>each pic is a button, and a different value will go to a catch service etc to determine pic/pokemon</p>
+            <p>maybe eventually you can make unlockable areas that have more rare/strong pokemon</p>
+            <p>and the first few areas can just be first stage evos and stuff</p>
+        
+    </details>
+
+    <details>
+        <summary>To Do (Functionality):</summary>
+            <h6>the user can add the pokemon to an existing party or scrap it</h6>
+            <h6>(create new party functionality later)</h6>
+            <h6>if the user adds it, execute the addToParty function</h6>
+            <h6>The function will send the user id, pokemon info, and the party id to the server</h6>
+    </details>
+-->
+
+    <!-- This might be cleaner with an *ngFor but it's apparently tricky to call assets from the TS-->
+    <div class="optionsContainer">
+
+        <div class="location-card">
+            <h4>Lake</h4>
+            <button class="btn btn-primary-outline btn-sm" routerLink="lake">
+            <img src="assets/lakeVerity.jpg" alt="lake">
+            </button>
+        </div>
+
+        <div class="location-card">
+            <h4>Forest</h4>
+            <button class="btn btn-primary-outline btn-sm" routerLink="forest">
+            <img src="/assets/viridianForest.png" alt="Forest">
+            </button>
+        </div>
+
+        <div class="location-card">
+            <h4>Mountain</h4>
+            <button class="btn btn-primary-outline btn-sm" routerLink="mountain">
+            <img src="../../../assets/mtCoronet.png" alt="mountain">
+            </button>
+        </div>
+
+        <div class="location-card">
+            <h4>City</h4>
+            <button class="btn btn-primary-outline btn-sm" routerLink="city">
+            <img src="../../../assets/palletTown.png" alt="city?? idk how that one would work.">
+            </button>
+        </div>
+
+        <!-- Some unlockable locations here probably, with *ngIf -->
+
+    </div>
+
+</div>

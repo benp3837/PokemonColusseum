@@ -1,0 +1,21 @@
+<div class="container-fluid">
+
+    <h3 style="padding-top: .5em">Hey, {{username}}</h3>
+
+    <hr style="border-top: 1px solid #bbb">
+
+    <div class="infoDiv">
+        <p>Pokemon Caught: {{caughtPokes}}</p>
+        <p *ngIf="lastPoke as pokemon">
+            Last Pokemon Caught:
+            <img src="{{pokemon.sprites.front_default}}" alt="" >
+            {{pokemon.name | titlecase}}
+        </p>
+        
+        <p>Battles Fought: {{battles}}</p>
+
+
+
+    </div>
+
+</div>

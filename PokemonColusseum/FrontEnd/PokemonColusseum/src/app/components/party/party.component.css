@@ -1,0 +1,58 @@
+.grid-container{
+    display: flex;
+    position: relative;
+    gap: 10%;
+    margin: 5%;
+}
+
+.party-card{
+    margin-right: 55px;
+    text-align: left;
+    text-indent: .4em;
+    border-style: double;
+    border-radius: 10%;
+    border-width: .2em;
+    background:black;
+    width: auto;
+    backdrop-filter: blur(20px);
+    display: flex; flex-direction: column
+}
+
+.party-section{
+  height:auto;
+  width:auto;
+  align-items:center;
+  padding-left: 35px;
+  padding-right: 30px;
+  background-image: url(../../../assets/pokecenter2.png);
+  background-size:contain;
+  background-repeat: no-repeat;
+  
+}
+
+p, h6 {
+    color:black;
+    font-weight: 600;
+}
+
+img{
+    width: 80px;
+    height: 80px;
+}
+
+.empty-slot{
+    color:white;
+    margin-top: 25px;
+    margin-bottom: 35px;
+}
+
+button{
+    border-radius: 100%;
+    border-style: solid;
+    border-width: 2px;
+}
+
+.party-header{
+    text-align:center;
+    color:white
+}

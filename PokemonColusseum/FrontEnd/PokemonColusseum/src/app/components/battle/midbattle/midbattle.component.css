@@ -1,0 +1,66 @@
+.party-header{
+    width: 35%;
+    border-style: double;
+    border-color:gray;
+    border-top: 1px;
+    border-left: 1px;
+    border-right: 1px;
+    margin-bottom: .5em;
+}
+
+.party-card{
+    position:fixed;
+    top:4.3em;
+    left:0;
+    float: left;
+    background-color: black;
+    width: 12%;
+    border-style: double;
+    border-radius: 3%;
+    border-width: 3px;
+    padding: 1em;
+    margin-bottom: 1em;
+    background-color: rgb(90, 94, 119);
+}
+
+.opponent-party-card{
+    align-items:center;
+    position:fixed;
+    top:4.3em;
+    right:0;
+    background-color: black;
+    width: 12%;
+    border-style: double;
+    border-radius: 3%;
+    border-width: 3px;
+    padding: 1em;
+    margin-bottom: 1em;
+    background-color: rgb(147, 64, 64);
+}
+
+.battle{
+    width:95%;
+    margin-top: .93em;
+    margin-left: 2em;
+    background-image: url("../../../../assets/battleground.jpg");
+    background-size: cover;
+}
+
+.hp-bar{
+    background-color:green;
+    width:10%;
+}
+
+.yourPoke{
+    margin-left: 25%;
+}
+
+.theirPoke{
+    margin-left: 63%;
+    padding-top:14%
+}
+
+img{
+    height:100px;
+    width:100px;
+}

@@ -1,0 +1,30 @@
+.optionsContainer{
+    border-style: solid;
+    border-width: .1em;
+    border-radius: 3%;
+    padding: 1em;
+    padding-top: 40px;
+    padding-bottom: 45px;
+    display: flex;
+    position: relative;
+    gap: 8%;
+    margin: 5%;
+    background: rgba(41, 36, 29, 0.5);
+    backdrop-filter: blur(20px);
+}
+
+.location-card {
+    justify-content: flex-end;
+}
+
+img {
+    height: 130px;
+    width: 190px;
+    border-style: groove;
+    border-width: .2em;
+    border-color: rgb(96, 96, 205);
+}
+
+h4 {
+    text-align: center;
+}

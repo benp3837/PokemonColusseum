@@ -1,0 +1,61 @@
+<div class="grid-container">
+
+    <!-- Property Binding! Taking data from the TS, and changing an HTML attribute -->
+    <!-- *ngFor is a structural directive that renders HTML for every object in an Array -->
+    <div *ngFor="let party of parties" class="party-card">
+
+        <!--String Interpolation!! Taking data from the TS, rending it on the HTML-->
+        <!-- <span class="party-header">Party #{{party.partyId}}</span> -->
+ 
+
+        <!--HOLD UP..... each party-section should be a component you DUMMY.............-->
+
+        <span class="party-section" *ngIf="party.pokemon1"> <!---->
+
+            <p>
+                {{party.pokemon1.name}}  
+            </p> 
+
+
+            <p *ngIf="party.pokemon1.sprite1 as sprite">
+                <img src="{{sprite}}" alt="please" >
+            </p>
+
+        </span>
+
+        <span *ngIf="party.pokemon2 as pokemon else empty" class="party-section"> <!---->
+    
+            <p>
+                {{pokemon.name}}  
+            </p> 
+
+            <p *ngIf="party.pokemon2.sprite1 as sprite">
+                <img src="{{sprite}}" alt="please" >     
+            </p>
+ 
+        </span>        
+
+        <span *ngIf="party.pokemon3 as pokemon else empty" class="party-section"> <!---->
+    
+            <p>
+                {{pokemon.name}}  
+            </p> 
+
+            <p *ngIf="party.pokemon3.sprite1 as sprite">
+                <img src="{{sprite}}" alt="please" >     
+            </p>
+
+        </span>    
+
+        <ng-template #empty>
+            <br><br>
+            <span class="empty-slot">
+                <span style="padding-right: 20px;">Empty Slot</span>
+                <button class="btn-dark">+</button>
+            </span> 
+            
+        </ng-template> 
+
+    </div>
+
+</div>

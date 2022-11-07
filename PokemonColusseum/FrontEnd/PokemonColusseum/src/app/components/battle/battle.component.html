@@ -1,0 +1,17 @@
+<div class="grid-container">
+
+    <div class="choose-party" [hidden]="partyChosen">
+
+        <h3>Choose a Party for Battle:</h3>
+
+        <hr style="border-top: 1px solid #bbb">
+
+        <div id="select-buttons" *ngFor="let party of parties; let i = index">
+            <button class="btn btn-dark" (click)="chooseParty(i)" routerLink="/midbattle">select</button>
+        </div>
+
+        <app-party class="parties"></app-party>
+
+    </div>
+
+</div>

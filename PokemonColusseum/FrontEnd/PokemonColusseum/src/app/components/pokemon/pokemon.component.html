@@ -1,0 +1,27 @@
+<div class="grid-container">
+
+    <h3 style="padding-top: .5em">You have {{caughtPokes}} Pokemon:</h3>
+
+    <hr style="border-top: 1px solid #bbb">
+
+    <details style="margin: .5em">
+        <summary>Order Options</summary>
+            <button class="btn-sm btn-dark" style="margin-left: .5em" (click)="alphabetize()">Alphabetical</button>
+            <button class="btn-sm btn-dark" style="margin-left: .5em" (click)="earliest()">Earliest First</button>
+            <button class="btn-sm btn-dark" style="margin-left: .5em" (click)="latest()">Latest First</button>
+    </details>
+    
+    <!-- There MUST be an easier way to get the pokeoptions displayed for only the poke you click-->
+    <!-- But for now we have these nested conditionals and a bunch of TS logic-->
+    <div class="pokemon-container" *ngIf="pokemon[0]">
+        <div *ngFor="let poke of pokemon; let i = index">  
+            <p style="margin-left:1.2em;">{{poke.name | titlecase}}</p>
+            <img src="{{poke.sprite1}}" (click) = showPokeOptions(i)>
+            <div *ngIf="i === currentPoke">
+                <app-pokeoptions [hidden] = pokeOptionsToggle [currentPokemon]="poke"></app-pokeoptions>
+            </div>
+        </div>
+    </div>
+
+
+</div>

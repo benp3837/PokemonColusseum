@@ -1,0 +1,28 @@
+<div class="container-fluid">
+
+    <div class="row" style="margin: .5em; margin-left: 0em; margin-top:2em">
+        <h3 style="margin-left: .5em;">Log in to Pokemon Colosseum</h3>
+        <!--Two way binding this input field to a variable called input in pokedex.component.ts-->
+        <!--In order to use ngModel I need to import the FormsModule in app.module.ts-->
+        <div class="col-lg-12">
+            <input class="col-lg-3" type="text" placeholder= "username" [(ngModel)]="usernameInput"/>
+        </div>
+        <div class="col-lg-12">
+            <input class="col-lg-3" type="password" placeholder= "password" [(ngModel)]="passwordInput"/>
+        </div>
+        <!--Event binding on this button to call the login() function in pokedex.component.ts-->
+        <div class="col-lg-12">
+            <button class="btn btn-dark col-lg-1.5" (click)="login()">{{loginMessage}}</button>
+        </div>
+    </div>
+
+    <!--register user-->
+    <div class="row" style="margin-left: .5em; margin-top: 2em;">
+        <p>Are you new here?</p>
+    </div>
+    <div class="row" style="margin-left: .5em">
+        <button class="btn btn-dark" (click)="register()">Register</button>
+    </div>
+    
+
+</div>
