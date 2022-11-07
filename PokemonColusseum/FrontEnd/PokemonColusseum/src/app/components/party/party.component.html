@@ -1,3 +1,29 @@
+<!-- THIS POKEMON LIST WILL RENDER IF THE USER TRIES TO ADD TO PARTY -->
+<div class="pokelist" [hidden]="pokemonHidden">
+
+    <h3 style="padding-top: .5em">Add Which Pokemon?</h3>
+
+    <details style="display:inline;">
+        <summary>Order Options</summary>
+            <button class="btn-sm btn-dark" style="margin-left: .5em" (click)="alphabetize()">Alphabetical</button>
+            <button class="btn-sm btn-dark" style="margin-left: .5em" (click)="earliest()">Earliest First</button>
+            <button class="btn-sm btn-dark" style="margin-left: .5em" (click)="latest()">Latest First</button>
+    </details>
+    <h5 style="display:inline; margin-left: 40%; cursor: pointer" (click)="hidePokemon()">x</h5>
+    
+    <!-- There MUST be an easier way to get the pokeoptions displayed for only the poke you click-->
+    <!-- But for now we have these nested conditionals and a bunch of TS logic-->
+    <div class="pokemon-container">
+        <div *ngFor="let poke of pokemon; let i = index">  
+            <img id="pcPoke" src="{{poke.sprite1}}" title="{{poke.name}}" (click)="addPokemonToParty(poke)">
+        </div>
+    </div>
+
+
+</div>
+
+<!--DEFAULT PARTY SCREEN STARTS HERE-->
+
 <div class="grid-container">
 
     <!-- Property Binding! Taking data from the TS, and changing an HTML attribute -->
@@ -51,9 +77,9 @@
             <br><br>
             <span class="empty-slot">
                 <span style="padding-right: 20px;">Empty Slot</span>
-                <button class="btn-dark">+</button>
+                <button id="emptySlotButton" class="btn-dark" (click)="showPokemon(party.partyId)">+</button>
+                <!--<app-pokemon [hidden]="pokemonHidden"></app-pokemon>-->
             </span> 
-            
         </ng-template> 
 
     </div>

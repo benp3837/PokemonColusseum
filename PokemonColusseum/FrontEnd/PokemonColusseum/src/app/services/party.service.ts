@@ -40,7 +40,10 @@ export class PartyService {
   }
 
 
-  //send pokemon to party function
-
+  //add pokemon to party function
+  addPokemonToParty(id:number, pokemon:Pokemon):Observable<HttpResponse<Party>>{
+    return this.http.put("http://localhost:8090/colusseum/parties/" + id, pokemon,
+    {observe: "response"}) as Observable<HttpResponse<Party>> 
+  }
 
 }

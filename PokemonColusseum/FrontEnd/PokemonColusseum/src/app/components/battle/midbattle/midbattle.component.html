@@ -9,7 +9,7 @@
                     {{pokemon.name}}  
                 </p> 
                 <p>
-                    <img src="{{pokemon.sprite1}}" alt="please" >
+                    <img id="partyPoke" src="{{pokemon.sprite1}}" alt="please" >
                 </p>
             </span>
     
@@ -18,7 +18,7 @@
                     {{pokemon.name}}  
                 </p> 
                 <p>
-                    <img src="{{pokemon.sprite1}}" alt="please" >     
+                    <img id="partyPoke" src="{{pokemon.sprite1}}" alt="please" >     
                 </p>
             </span>        
     
@@ -27,7 +27,7 @@
                     {{pokemon.name}}  
                 </p>
                 <p>
-                    <img src="{{pokemon.sprite1}}" alt="please" >     
+                    <img id="partyPoke" src="{{pokemon.sprite1}}" alt="please" >     
                 </p>
             </span>    
     
@@ -38,19 +38,19 @@
         <div class="battle">
 
             <div class="theirPoke">
-                <div class="info-box">
-                    <p>{{opponent.pokemon1.name}}</p>
+                <div class="their-info-box" style="background-color: rgb(147, 64, 64);"> 
+                    <p style="display:inline">{{opponent.pokemon1.name}}</p>
                     <p id="hp-bar">hp:     </p>
                 </div>
-                <img src="{{opponent.pokemon1.sprite1}}" alt="">
+                <img id="livePoke" src="{{opponent.pokemon1.sprite1}}" alt="">
             </div>
 
-            <div class="yourPoke">
-                <div class="info-box">
-                    <p>{{chosenParty.pokemon1.name}}</p>
+            <div class="yourPoke">      
+                <div class="your-info-box" style="background-color: rgb(90, 94, 119);">
+                    <p style="display:inline">{{chosenParty.pokemon1.name}}</p>
                     <p id="hp-bar">hp:     </p>
                 </div>
-                <img src="{{chosenParty.pokemon1.sprite2}}" alt="">
+                <img id="livePoke" src="{{chosenParty.pokemon1.sprite2}}" alt="">
             </div>
 
         </div>
@@ -66,7 +66,7 @@
                     {{pokemon.name}}  
                 </p> 
                 <p>
-                    <img src="{{pokemon.sprite1}}" alt="please" >
+                    <img id="partyPoke" src="{{pokemon.sprite1}}" alt="please" >
                 </p>
             </span>
     
@@ -75,7 +75,7 @@
                     {{pokemon.name}}  
                 </p> 
                 <p>
-                    <img src="{{pokemon.sprite1}}" alt="please" >     
+                    <img id="partyPoke" src="{{pokemon.sprite1}}" alt="please" >     
                 </p>
             </span>        
     
@@ -84,7 +84,7 @@
                     {{pokemon.name}}  
                 </p> 
                 <p>
-                    <img src="{{pokemon.sprite1}}" alt="please" >     
+                    <img id="partyPoke" src="{{pokemon.sprite1}}" alt="please" >     
                 </p>
             </span>    
     

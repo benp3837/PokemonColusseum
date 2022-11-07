@@ -3,8 +3,10 @@ package com.ben.controllers;
 import com.ben.daos.PartyDAO;
 import com.ben.daos.UserDao;
 import com.ben.models.Party;
+import com.ben.models.Pokemon;
 import com.ben.models.User;
 import com.ben.services.UserService;
+import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -67,6 +69,31 @@ public class PartyController {
         //if the Optional is null (in other words if Optional.isPresent() == false)
         return ResponseEntity.noContent().build(); //return a no content status code, with empty response body
 
+    }
+
+    //this method will be used for both adding and removing a pokemon from a party
+    @PutMapping("/{partyId}")
+    public ResponseEntity updateParty(@RequestBody Pokemon pokemon, @PathVariable int partyId){
+
+        Optional<Party> DBParty = pDAO.findById(partyId);
+
+        //gets the party from the optional, replace parties, save back to DB
+        if(DBParty.isPresent()) {
+            Party extractedParty = DBParty.get();
+            if(extractedParty.getPokemon1() == null){
+                extractedParty.setPokemon1(pokemon);
+            } else if(extractedParty.getPokemon2() == null){
+                extractedParty.setPokemon2(pokemon);
+            } else if(extractedParty.getPokemon3() == null){
+                extractedParty.setPokemon3(pokemon);
+            } else {
+                System.out.println("party full!");
+                //send some kinda error message that can determine whether to yell at the user on the UI
+            }
+            return ResponseEntity.accepted().body(pDAO.save(extractedParty));
+        }
+
+        return ResponseEntity.badRequest().build();
     }
 
 }

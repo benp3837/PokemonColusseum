@@ -13,4 +13,6 @@ public interface PartyDAO extends JpaRepository<Party, Integer> {
 
     public Optional<List<Party>> findByUser(User u);
 
+
+
 }

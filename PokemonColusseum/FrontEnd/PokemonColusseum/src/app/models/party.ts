@@ -1,4 +1,5 @@
 import { Pokemon } from "./pokemon";
+import { User } from "./user";
 
 export class Party {
 
@@ -7,6 +8,7 @@ export class Party {
         public pokemon1: Pokemon,
         public pokemon2?: Pokemon,
         public pokemon3?: Pokemon,
+        public user?: User
     ){}
 
 }

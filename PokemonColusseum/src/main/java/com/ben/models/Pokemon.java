@@ -15,7 +15,7 @@ public class Pokemon {
     private String type1;
     private String type2;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    @ManyToOne(fetch = FetchType.EAGER) //removed cascadetype merge to be able to add/remove pokes from party
     @JoinColumn(name = "userId")
     private User user;
 
