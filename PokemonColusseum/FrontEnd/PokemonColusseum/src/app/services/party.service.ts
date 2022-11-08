@@ -39,10 +39,15 @@ export class PartyService {
     return this.http.get("https://pokeapi.co/api/v2/pokemon/" + pokeFix, {observe: "response"}) as Observable<HttpResponse<Pokemon>>;
   }
 
-
   //add pokemon to party function
-  addPokemonToParty(id:number, pokemon:Pokemon):Observable<HttpResponse<Party>>{
-    return this.http.put("http://localhost:8090/colusseum/parties/" + id, pokemon,
+  addPokemonToParty(partyId:number, pokemon:Pokemon):Observable<HttpResponse<Party>>{
+    return this.http.put("http://localhost:8090/colusseum/parties/" + partyId, pokemon,
+    {observe: "response"}) as Observable<HttpResponse<Party>> 
+  }
+
+  //remove pokemon from party function
+  removePokemonFromParty(partyId:number, pokeToDelete:number):Observable<HttpResponse<Party>>{
+    return this.http.put("http://localhost:8090/colusseum/parties/remove/" + partyId, pokeToDelete,
     {observe: "response"}) as Observable<HttpResponse<Party>> 
   }
 

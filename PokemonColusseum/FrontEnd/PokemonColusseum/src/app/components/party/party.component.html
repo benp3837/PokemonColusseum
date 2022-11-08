@@ -1,5 +1,5 @@
 <!-- THIS POKEMON LIST WILL RENDER IF THE USER TRIES TO ADD TO PARTY -->
-<div class="pokelist" [hidden]="pokemonHidden">
+<div class="poke-list" [hidden]="pokemonHidden">
 
     <h3 style="padding-top: .5em">Add Which Pokemon?</h3>
 
@@ -22,6 +22,30 @@
 
 </div>
 
+<!--THIS POKE INFO DIV WILL RENDER WHEN YOU CLICK A PARTY POKEMON-->
+
+<h5 style="display:inline; margin-left: 41%; cursor: pointer" (click)="togglePokeInfo(null, 0, 0)" [hidden]="partyPokeInfoHidden">x</h5>
+<div class="poke-profile"[hidden]="partyPokeInfoHidden">
+
+    <div class="poke-info">
+        <h5 style="float:left; color:black; font-weight: 600;">{{selectedPoke.name | titlecase}}</h5>
+        <span *ngIf="!selectedPoke.type2" class="stat-line">Type: {{selectedPoke.type1 | titlecase}}</span> 
+        <span *ngIf="selectedPoke.type2" class="stat-line">Type: {{selectedPoke.type1 | titlecase}} & {{selectedPoke.type2 | titlecase}}</span>
+        <img src="{{selectedPoke.sprite1}}" alt="">
+    </div>
+    <div class="poke-stats">
+        <h6 class="stat-line">Base Stats: </h6>
+        <div class="stat-line">HP: 123 | Speed: 123</div>
+        <div class="stat-line">Attack: 123 | Special Attack: 123</div>
+        <div class="stat-line">Defense: 123 | Special Defense: 123</div>
+    </div>
+
+</div>
+
+<button style="margin-left: 1.2em;" class="btn btn-dark" 
+[hidden]="partyPokeInfoHidden" (click)="removePokemonFromParty()">{{removeButtonMessage}}</button>
+
+
 <!--DEFAULT PARTY SCREEN STARTS HERE-->
 
 <div class="grid-container">
@@ -31,20 +55,15 @@
     <div *ngFor="let party of parties" class="party-card">
 
         <!--String Interpolation!! Taking data from the TS, rending it on the HTML-->
-        <!-- <span class="party-header">Party #{{party.partyId}}</span> -->
- 
 
-        <!--HOLD UP..... each party-section should be a component you DUMMY.............-->
-
-        <span class="party-section" *ngIf="party.pokemon1"> <!---->
+        <span class="party-section" *ngIf="party.pokemon1 as pokemon else empty"> 
 
             <p>
                 {{party.pokemon1.name}}  
             </p> 
 
-
             <p *ngIf="party.pokemon1.sprite1 as sprite">
-                <img src="{{sprite}}" alt="please" >
+                <img src="{{sprite}}" alt="please" (click)="togglePokeInfo(party.pokemon1, 1, party.partyId)">
             </p>
 
         </span>
@@ -56,19 +75,19 @@
             </p> 
 
             <p *ngIf="party.pokemon2.sprite1 as sprite">
-                <img src="{{sprite}}" alt="please" >     
+                <img src="{{sprite}}" alt="please" (click)="togglePokeInfo(party.pokemon2, 2, party.partyId)">     
             </p>
  
         </span>        
 
-        <span *ngIf="party.pokemon3 as pokemon else empty" class="party-section"> <!---->
+        <span *ngIf="party.pokemon3 as pokemon else empty" class="party-section"> 
     
             <p>
                 {{pokemon.name}}  
             </p> 
 
             <p *ngIf="party.pokemon3.sprite1 as sprite">
-                <img src="{{sprite}}" alt="please" >     
+                <img src="{{sprite}}" alt="please" (click)="togglePokeInfo(party.pokemon3, 3, party.partyId)">     
             </p>
 
         </span>    

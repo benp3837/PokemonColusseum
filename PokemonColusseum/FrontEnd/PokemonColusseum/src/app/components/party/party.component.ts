@@ -13,17 +13,30 @@ import { UserService } from 'src/app/services/user.service';
 
 export class PartyComponent implements OnInit {
 
-  //toggles whether the list of pokemon is shown
-  pokemonHidden:boolean = true;
-
   //a list of the user's pokemon, which come in from the DB if the user wants to add a poke to party
   pokemon:Pokemon[];
 
-  //this will hold the index of the party selected (when adding to party)
-  selectedParty:number;
-
   //list of parties which gets grabbed oninit
   parties:Party[] = []
+
+  //toggles whether the list of pokemon is shown
+  pokemonHidden:boolean = true;
+
+  //toggles whether a party pokemon's info will be displayed
+  partyPokeInfoHidden:boolean = true;
+
+  //toggles the text of the remove from party button
+  removeButtonMessage:String = "Remove";
+
+  //saves the last clicked party pokemon (for the info box)
+  selectedPoke:Pokemon = {
+      name:"",
+      types:""
+  };
+
+  //this will hold the index of the party selected (when adding/removing from party)
+  selectedParty:number;
+
 
   constructor(private ps:PartyService, private pks:PokemonService, private us:UserService) { }
 
@@ -46,11 +59,12 @@ export class PartyComponent implements OnInit {
     )
   }
 
-  //pokemon gathering and choosing functions---------------------------
+  //ADD & REMOVE FROM PARTY FUNCTIONS---------------------------
 
   //renders the list of pokemon
   showPokemon(partyId:number){
-    console.log("hi")
+    this.partyPokeInfoHidden = true; //we don't want the pc pokemon and party info together
+    
     this.pokemonHidden = !this.pokemonHidden;
 
     //store the party that was selected
@@ -83,7 +97,45 @@ export class PartyComponent implements OnInit {
     )
   }
 
-  //pokemon sorting functions--------------------------------------------------------------
+  //this will make the pokemon info box visible and save the current pokemon's info
+  togglePokeInfo(p:Pokemon, slot:number, partyId:number){
+
+    this.pokemonHidden = true; //we don't want the pc pokemon and party info together
+
+    partyId > 0? this.partyPokeInfoHidden = false : this.partyPokeInfoHidden = true; 
+    if(p != null){
+      this.selectedPoke = p;
+      this.selectedPoke.slot = slot;
+      this.selectedParty = partyId;
+    }
+  }
+
+  //removes the selected pokemon from their party
+  removePokemonFromParty(){
+
+    console.log(this.removeButtonMessage)
+
+    if(this.removeButtonMessage == "Remove"){
+      this.removeButtonMessage = "Really?"
+    }
+    else if(this.removeButtonMessage == "Really?"){
+      this.removeButtonMessage = "Remove"
+      console.log("releasing " + this.selectedPoke.name)
+      
+      this.ps.removePokemonFromParty(this.selectedParty, this.selectedPoke.slot).subscribe(
+        (data:any) => {
+          console.log("updated party:");
+          console.log(data.body);
+          this.partyPokeInfoHidden = true;
+          this.getPokemon();
+        }
+      )
+
+    }
+
+  }
+
+  //POKEMON SORTING FUNCTIONS--------------------------------------------------------------
 
   //display the Pokemon in alphabetical order
   alphabetize(){

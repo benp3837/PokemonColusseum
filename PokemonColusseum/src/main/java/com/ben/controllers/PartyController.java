@@ -71,9 +71,9 @@ public class PartyController {
 
     }
 
-    //this method will be used for both adding and removing a pokemon from a party
+    //this method will be used for adding a pokemon from a party
     @PutMapping("/{partyId}")
-    public ResponseEntity updateParty(@RequestBody Pokemon pokemon, @PathVariable int partyId){
+    public ResponseEntity addPokemonToParty(@RequestBody Pokemon pokemon, @PathVariable int partyId){
 
         Optional<Party> DBParty = pDAO.findById(partyId);
 
@@ -89,10 +89,40 @@ public class PartyController {
             } else {
                 System.out.println("party full!");
                 //send some kinda error message that can determine whether to yell at the user on the UI
+                //this actually won't ever execute since the UI's add buttons disappear after 3 pokemon
             }
             return ResponseEntity.accepted().body(pDAO.save(extractedParty));
         }
 
+        return ResponseEntity.badRequest().build();
+    }
+
+
+    //this method will remove a given pokemon from a party
+    @PutMapping("/remove/{partyId}")
+    public ResponseEntity removePokemonFromParty(@RequestBody int pokeToDelete, @PathVariable int partyId){
+
+        Optional<Party> DBParty = pDAO.findById(partyId);
+        Party extractedParty; //this will get initialized and updated... IF:
+
+        if(DBParty.isPresent()){
+
+            extractedParty = DBParty.get(); //initialize
+
+            //update
+            switch(pokeToDelete){
+                case 1: {
+                    extractedParty.setPokemon1(null);
+                }
+                case 2: {
+                    extractedParty.setPokemon2(null);
+                }
+                case 3: {
+                    extractedParty.setPokemon3(null);
+                }
+            }
+            return ResponseEntity.accepted().body(pDAO.save(extractedParty)); //save and return
+        }
         return ResponseEntity.badRequest().build();
     }
 

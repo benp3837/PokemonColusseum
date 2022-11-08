@@ -1,6 +1,6 @@
 /* POKELIST STUFF FIRST */
 
-.pokelist{
+.poke-list{
     margin:1em;
 }
 
@@ -42,6 +42,7 @@
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #3b0101; 
+    cursor: pointer;
   }
 
   #pcPoke{
@@ -51,8 +52,50 @@
 
   #pcPoke:hover {
     transform: scale(1.1);
+    cursor: pointer;
     content: attr(title);
     color-interpolation-filters: linearRGB;
+}
+
+.poke-profile{
+    display: flex; flex-direction: row;
+}
+
+.poke-info{
+    display: flex; flex-direction: row;
+    justify-content: center;
+    display: inline-grid;
+    height: auto;
+    width: 18%;
+    margin-left: 1em;
+    padding: 5px;
+    border-style: double;
+    border-width: 4px;
+    border-radius: 5%;
+    border-color: black;
+    background-color: rgb(90, 94, 119);
+    backdrop-filter: blur(20px);
+}
+
+.poke-stats{
+    display: flex; flex-direction: column;
+    justify-content: center;
+    display:inline-grid;
+    height: auto;
+    width: auto;
+    margin-left: 1em;
+    padding: 5px;
+    border-style: double;
+    border-width: 4px;
+    border-radius: 5%;
+    border-color: black;
+    background-color: rgb(90, 94, 119);
+}
+
+.stat-line{
+    display: flex; 
+    justify-content: center; 
+    font-weight: 600;
 }
 
   /*DEFAULT PARTY COMPONENT STUFF BELOW*/
@@ -61,11 +104,11 @@
     display: flex;
     position: relative;
     gap: 10%;
-    margin: 5%;
+    margin: 3%;
 }
 
 .party-card{
-    margin-right: 55px;
+    margin-right: 60px;
     text-align: left;
     text-indent: .4em;
     border-style: double;
@@ -97,6 +140,11 @@ p, h6 {
 img{
     width: 80px;
     height: 80px;
+}
+
+img:hover{
+    transform: scale(1.1);
+    cursor: pointer;
 }
 
 .empty-slot{
