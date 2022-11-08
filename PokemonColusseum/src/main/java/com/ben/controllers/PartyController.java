@@ -77,6 +77,7 @@ public class PartyController {
 
         Optional<Party> DBParty = pDAO.findById(partyId);
 
+        //TODO: wrap this in a try catch so that a user can't add the same poke twice
         //gets the party from the optional, replace parties, save back to DB
         if(DBParty.isPresent()) {
             Party extractedParty = DBParty.get();
@@ -113,12 +114,15 @@ public class PartyController {
             switch(pokeToDelete){
                 case 1: {
                     extractedParty.setPokemon1(null);
+                    break;
                 }
                 case 2: {
                     extractedParty.setPokemon2(null);
+                    break;
                 }
                 case 3: {
                     extractedParty.setPokemon3(null);
+                    break;
                 }
             }
             return ResponseEntity.accepted().body(pDAO.save(extractedParty)); //save and return
