@@ -44,6 +44,7 @@
     margin-left: 2em;
     background-image: url("../../../../assets/battleground.jpg");
     background-size: cover;
+    background-position: fixed;
 }
 
 .your-info-box{

@@ -10,11 +10,11 @@
 #select-buttons{
     display: inline-block;
     width: 1.2em;
-    margin-left: 18%
+    margin-left: 18%;
+    gap: 20%;
 }
 
 .parties{
     display: inline-block;
-    width: 25%;
-    margin-left: 13%;
+    width: 50%
 }

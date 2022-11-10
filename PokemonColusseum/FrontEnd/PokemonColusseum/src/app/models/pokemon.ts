@@ -12,7 +12,14 @@ export class Pokemon {
         public sprites?: any,
         public user_id?: number,
         public pokemonId?: number,
-        public slot?: number
+        public slot?: number,
+        public stats?: any, //this will hold pokeapi stats. it gets changed to my DB format before post
+        public hp?: string,
+        public speed?: string,
+        public attack?: string,
+        public sAttack?: string,
+        public defense?: string,
+        public sDefense?: string
     ){}
 
 }

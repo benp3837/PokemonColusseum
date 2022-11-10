@@ -18,6 +18,9 @@ export class UserService {
     })
   };
 
+  //this will hold info about the trainer's session, which will populate in the welcome page
+  info:String[] = [];
+
   //global user object, gets populated after login. Should take out password hehe
   user:User = {
       id:0,

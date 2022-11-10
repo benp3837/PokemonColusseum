@@ -6,7 +6,7 @@
 
         <hr style="border-top: 1px solid #bbb">
 
-        <div id="select-buttons" *ngFor="let party of parties; let i = index">
+        <div id="select-buttons" class="col-sm-12" *ngFor="let party of parties; let i = index">
             <button class="btn btn-dark" (click)="chooseParty(i)" routerLink="/midbattle">select</button>
         </div>
 

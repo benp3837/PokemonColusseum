@@ -1,5 +1,5 @@
-.info-container{
-    margin: 1em;
+.container-fluid{
+
 }
 
 .activity-container{
@@ -36,3 +36,4 @@
   ::-webkit-scrollbar-thumb:hover {
     background: #3b0101; 
   }
+

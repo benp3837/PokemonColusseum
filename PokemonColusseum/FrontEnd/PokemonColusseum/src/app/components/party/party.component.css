@@ -103,12 +103,12 @@
   .grid-container{
     display: flex;
     position: relative;
-    gap: 10%;
+    gap: 1%;
     margin: 3%;
 }
 
 .party-card{
-    margin-right: 60px;
+    margin-right: 152px;
     text-align: left;
     text-indent: .4em;
     border-style: double;
@@ -138,8 +138,8 @@ p, h6 {
 }
 
 img{
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
 }
 
 img:hover{

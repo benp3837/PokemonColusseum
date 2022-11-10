@@ -9,7 +9,7 @@
                     {{pokemon.name}}  
                 </p> 
                 <p>
-                    <img id="partyPoke" src="{{pokemon.sprite1}}" alt="please" >
+                    <img id="partyPoke" (click)="sendPokemonOut(pokemon)" src="{{pokemon.sprite1}}" alt="please" >
                 </p>
             </span>
     
@@ -18,7 +18,7 @@
                     {{pokemon.name}}  
                 </p> 
                 <p>
-                    <img id="partyPoke" src="{{pokemon.sprite1}}" alt="please" >     
+                    <img id="partyPoke" (click)="sendPokemonOut(pokemon)" src="{{pokemon.sprite1}}" alt="please" >     
                 </p>
             </span>        
     
@@ -27,7 +27,7 @@
                     {{pokemon.name}}  
                 </p>
                 <p>
-                    <img id="partyPoke" src="{{pokemon.sprite1}}" alt="please" >     
+                    <img id="partyPoke" (click)="sendPokemonOut(pokemon)" src="{{pokemon.sprite1}}" alt="please">     
                 </p>
             </span>    
     
@@ -47,10 +47,10 @@
 
             <div class="yourPoke">      
                 <div class="your-info-box" style="background-color: rgb(90, 94, 119);">
-                    <p style="display:inline">{{chosenParty.pokemon1.name}}</p>
+                    <p style="display:inline">{{chosenPoke.name}}</p>
                     <p id="hp-bar">hp:     </p>
                 </div>
-                <img id="livePoke" src="{{chosenParty.pokemon1.sprite2}}" alt="">
+                <img id="livePoke" src="{{pokePic}}" alt="">
             </div>
 
         </div>

@@ -2,20 +2,27 @@
 
     <h3 style="padding-top: .5em">Welcome to Pokemon Colosseum</h3>
 
+    <details>
+
+        <summary>About</summary>
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora consectetur omnis repudiandae, 
+            sapiente soluta culpa perferendis totam ad eaque impedit illo nobis fugiat, odio ut error! Eaque 
+            aut voluptate beatae non voluptatem deleniti rem aperiam architecto autem odio. Quae sit ipsam 
+            quia quas voluptatem rem doloremque dolore aperiam culpa esse!</p>
+
+    </details>
+
     <hr style="border-top: 1px solid #bbb">
 
     <div class="info-container">
 
         <h5>Recent Trainer Activity:</h5>
 
-        <div class="activity-container" >
-            <p>X caught a P!</p>
-            <p>Y has joined the adventure!</p>
-            <p>X defeated Y in battle!</p>
-            <p>X defeated Y in battle!</p>
-            <p>X defeated Y in battle!</p>
-            <p>X defeated Y in battle!</p>
-            <p>X defeated Y in battle!</p>
+        <div *ngIf="info[0]" class="activity-container">
+            <div *ngFor="record of info; let i = index">
+                <p>{{user.username}} {{info[i]}}</p>
+            </div>
         </div>  
 
 <br><br><br><br> <!--line breaks for lazy spacing for now-->
@@ -23,16 +30,7 @@
 <br><br>
 
 
-        <details>
 
-            <summary>About Pokemon Colluseum</summary>
-
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora consectetur omnis repudiandae, 
-                sapiente soluta culpa perferendis totam ad eaque impedit illo nobis fugiat, odio ut error! Eaque 
-                aut voluptate beatae non voluptatem deleniti rem aperiam architecto autem odio. Quae sit ipsam 
-                quia quas voluptatem rem doloremque dolore aperiam culpa esse!</p>
-
-        </details>
     </div>
 
 </div>

@@ -92,11 +92,11 @@ export class ForestComponent implements OnInit {
 
   //this function adds a caught pokemon to the DB
   catchPokemon(){
-    console.log("hello?")
     this.ps.addPokemonToDB().subscribe()
  
     this.pokeFound = false; //set this back to false to wipe the options
     this.infoH5 = "Caught " + this.pokemon.name + "!";
+    this.us.info.push("caught a wild " + this.pokemon.name + " in the forest")
   }
 
     //we need to INJECT the pokemon service so that we have access to its functions/variables

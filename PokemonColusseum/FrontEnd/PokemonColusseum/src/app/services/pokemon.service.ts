@@ -18,6 +18,7 @@ export class PokemonService {
     sprite1:"",
     sprite2:"",
     user_id: 0,
+    stats:""
   }
 
   //this Array will hold the user's Pokemon
@@ -66,6 +67,12 @@ export class PokemonService {
       sprite2:this.pokemon.sprites.back_default,
       type1:this.pokemon.types[0].type.name,
       type2:type2,
+      hp:this.pokemon.stats[0].base_stat,
+      speed:this.pokemon.stats[5].base_stat,
+      attack:this.pokemon.stats[1].base_stat,
+      defense:this.pokemon.stats[2].base_stat,
+      sAttack:this.pokemon.stats[3].base_stat,
+      sDefense:this.pokemon.stats[4].base_stat,
       user:this.us.user.id
     }
 
