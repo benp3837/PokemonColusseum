@@ -38,6 +38,7 @@ export class PokeoptionsComponent implements OnInit {
           this.pc.getPokesFromDB() //refresh the pokemon rendered on the Pokemon Component
         }
       ) 
+      //TODO: event emitter from child to parent to get the options component to disappear
     }
 
   }

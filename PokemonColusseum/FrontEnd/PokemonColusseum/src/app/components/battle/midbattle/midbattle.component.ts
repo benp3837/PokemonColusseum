@@ -3,6 +3,7 @@ import { Opponent } from 'src/app/models/opponent';
 import { Party } from 'src/app/models/party';
 import { Pokemon } from 'src/app/models/pokemon';
 import { BattleService } from 'src/app/services/battle.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-midbattle',
@@ -25,9 +26,16 @@ export class MidbattleComponent implements OnInit {
   pokePic:string;
 
   //this will get populated with a random opponent from the DB
-  opponent:Opponent;
+  opponent:Opponent = {
+    opponentId:0,
+    opponentClass:"",
+    opponentName:"",
+    pokemon1:null,
+    pokemon2:null,
+    pokemon3:null
+  };
 
-  constructor(private bs:BattleService) { }
+  constructor(private bs:BattleService, private us:UserService) { }
 
   ngOnInit(): void {
 
@@ -44,6 +52,10 @@ export class MidbattleComponent implements OnInit {
     this.chosenPoke = this.chosenParty.pokemon1
     this.pokePic = this.chosenPoke.sprite2
 
+    setTimeout(() => {
+      this.us.info.push("started a battle with " + this.opponent.opponentClass + " " + this.opponent.opponentName)
+    }, 400)
+
   }
 
   hello(){
@@ -52,14 +64,15 @@ export class MidbattleComponent implements OnInit {
 
   sendPokemonOut(p:Pokemon){
 
-    //display a pokeball for a second
-    this.pokePic = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png"
+    if(this.chosenPoke.name != p.name){
+      //display a pokeball for a second
+      this.pokePic = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/items/poke-ball.png"
 
-    setTimeout(() => {
-      this.chosenPoke = p;
-      this.pokePic = p.sprite2;
-    }, 500)
-
+      setTimeout(() => {
+        this.chosenPoke = p;
+        this.pokePic = p.sprite2;
+      }, 400)
+    }
     
   }
 

@@ -18,6 +18,7 @@ public class PokemonController {
 
     private PokemonDAO pDAO;
 
+    //dependency injecting the PokemonDAO so that we can use its methods
     @Autowired
     public PokemonController(PokemonDAO pDAO) {
         super();

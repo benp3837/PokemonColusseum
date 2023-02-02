@@ -17,19 +17,22 @@
 
     <div class="info-container">
 
-        <h5>Recent Trainer Activity:</h5>
+        <h5>Recent Trainer Activity: </h5>
 
-        <div *ngIf="info[0]" class="activity-container">
-            <div *ngFor="record of info; let i = index">
+        <div *ngIf="info[0]; else noContent" class="activity-container">
+            <div *ngFor="record of info.reverse(); let i = index">
                 <p>{{user.username}} {{info[i]}}</p>
             </div>
         </div>  
 
+        <ng-template #noContent>
+            <span>No Recent Activity... Do Something!</span>
+        </ng-template>
+
 <br><br><br><br> <!--line breaks for lazy spacing for now-->
-<br><br><br><br>
+<br><br><br>
 <br><br>
-
-
+<br>
 
     </div>
 

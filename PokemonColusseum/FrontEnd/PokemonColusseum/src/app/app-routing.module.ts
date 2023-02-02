@@ -14,6 +14,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
 
+//This is how we can specify different routes to render each component
 const routes: Routes = [
 
   {
@@ -80,7 +81,9 @@ const routes: Routes = [
   {
     path:"catch/city",
     component:CityComponent
-  }
+  },
+
+  //** for wildcard component (useful for 404 - consider redirect here instead of just 404 component)
 
 ];
 

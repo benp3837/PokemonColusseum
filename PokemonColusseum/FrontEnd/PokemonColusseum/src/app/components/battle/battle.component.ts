@@ -11,7 +11,7 @@ import { PartyService } from 'src/app/services/party.service';
 export class BattleComponent implements OnInit {
 
   //so that we have access to every party
-  parties:Party[];
+  parties:Party[] = this.ps.parties;
 
   //this will get populated with the party the user chooses
   chosenParty:Party;
@@ -24,8 +24,10 @@ export class BattleComponent implements OnInit {
   ngOnInit(): void {
     this.ps.getPartyFromDB().subscribe(
       (data:any) => {
-        this.parties = data.body
+        this.parties = data.body as Party[]
+        console.log("parties")
         console.log(this.parties)
+        console.log(this.parties[0])
       }
     )
   }

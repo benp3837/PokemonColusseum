@@ -6,12 +6,28 @@
 
         <hr style="border-top: 1px solid #bbb">
 
+        <!--
         <div id="select-buttons" class="col-sm-12" *ngFor="let party of parties; let i = index">
-            <button class="btn btn-dark" (click)="chooseParty(i)" routerLink="/midbattle">select</button>
+            
         </div>
+        -->
 
-        <app-party class="parties"></app-party>
-
+        <div class="parties col-sm-6" *ngFor="let party of parties; let i = index">
+            <div class="party-tube " (click)="chooseParty(i)" routerLink="/midbattle">
+                <div>
+                    <p>{{party.pokemon1.name}}</p>
+                    <img src="{{party.pokemon1.sprite1}}" alt=""/>
+                </div>
+                <div *ngIf="party.pokemon2">
+                    <p >{{party.pokemon2.name}}</p>
+                    <img src="{{party.pokemon2.sprite1}}" alt=""/>
+                </div>
+                <div *ngIf="party.pokemon3">
+                    <p >{{party.pokemon3.name}}</p>
+                    <img src="{{party.pokemon3.sprite1}}" alt=""/>
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>

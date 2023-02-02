@@ -15,6 +15,36 @@
 }
 
 .parties{
-    display: inline-block;
-    width: 50%
+    display: inline-block; 
+    align-content: center;
+    
+}
+
+.party-tube{
+    
+    display: flex; flex-direction: row;
+    gap: 20%;
+    text-align: center;
+    border-style: groove;
+    border-color: rgb(160, 154, 154);
+    border-width: 5px;
+    border-radius: 10%;
+    padding-left: 1em;
+    background-color: rgb(67, 73, 113);
+}
+
+.party-tube:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.party-tube>div>p{
+    color:black;
+    font-weight: bold;
+   font-size: small;
+}
+
+img{
+    height:70px;
+    width:70px;
 }
