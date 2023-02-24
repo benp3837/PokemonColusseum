@@ -57,39 +57,30 @@
         <!--String Interpolation!! Taking data from the TS, rending it on the HTML-->
 
         <span class="party-section" *ngIf="party.pokemon1 as pokemon else empty"> 
-
             <p>
                 {{party.pokemon1.name}}  
             </p> 
-
             <p *ngIf="party.pokemon1.sprite1 as sprite">
                 <img src="{{sprite}}" alt="please" (click)="togglePokeInfo(party.pokemon1, 1, party.partyId)">
             </p>
-
         </span>
 
         <span *ngIf="party.pokemon2 as pokemon else empty" class="party-section"> <!---->
-    
             <p>
                 {{pokemon.name}}  
             </p> 
-
             <p *ngIf="party.pokemon2.sprite1 as sprite">
                 <img src="{{sprite}}" alt="please" (click)="togglePokeInfo(party.pokemon2, 2, party.partyId)">     
             </p>
- 
         </span>        
 
         <span *ngIf="party.pokemon3 as pokemon else empty" class="party-section"> 
-    
             <p>
                 {{pokemon.name}}  
             </p> 
-
             <p *ngIf="party.pokemon3.sprite1 as sprite">
                 <img src="{{sprite}}" alt="please" (click)="togglePokeInfo(party.pokemon3, 3, party.partyId)">     
             </p>
-
         </span>    
 
         <ng-template #empty>

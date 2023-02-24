@@ -1,5 +1,5 @@
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { findIndex } from 'rxjs/operators';
 import { Pokemon } from 'src/app/models/pokemon';
 import { PokemonService } from 'src/app/services/pokemon.service';
@@ -12,8 +12,8 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class PokemonComponent implements OnInit {
 
-  //this toggles the pokemon's options onclick
-  pokeOptionsToggle:boolean = true;
+  //this toggles the pokemon's options onclick, changes either in the method below or from child 
+  hidePokeOptions:boolean = true;
 
   //need this to emit a pokemon value to the options component
   @Output() notifyChild: EventEmitter<Pokemon> = new EventEmitter();
@@ -43,6 +43,17 @@ export class PokemonComponent implements OnInit {
 
   }
 
+    //show or hide the options and stats of a pokemon when clicked. 
+    showPokeOptions(index:number){
+      if(index === -1){
+        this.hidePokeOptions = true;
+      } else{
+        this.hidePokeOptions = !this.hidePokeOptions;
+        this.currentPoke = index 
+        this.notifyChild.emit(this.pokemon[this.currentPoke])
+      }
+    }
+
   //gets the indexes of the pokemon Array (for individual options)
   getPokeIndexes(){
     for(let i = 0; i < this.pokemon.length; i++){
@@ -68,14 +79,6 @@ export class PokemonComponent implements OnInit {
         //TODO: tell the user something went wrong idk. not logged in? no pokemon.
       }
     )
-  }
-
-  //shows the options (and stats?) of a pokemon
-  showPokeOptions(index:number){
-    this.pokeOptionsToggle = !this.pokeOptionsToggle;
-    this.currentPoke = index 
-    this.notifyChild.emit(this.pokemon[this.currentPoke]) 
-
   }
 
   //pokemon sorting functions--------------------------------------------------------------

@@ -18,7 +18,8 @@
             <p style="margin-left:1.2em;">{{poke.name | titlecase}}</p>
             <img src="{{poke.sprite1}}" (click) = showPokeOptions(i)>
             <div *ngIf="i === currentPoke">
-                <app-pokeoptions [hidden] = pokeOptionsToggle [currentPokemon]="poke"></app-pokeoptions>
+                <app-pokeoptions [hidden] = hidePokeOptions [currentPokemon]="poke"
+                (notifyParent) = showPokeOptions($event)></app-pokeoptions>
             </div>
         </div>
     </div>

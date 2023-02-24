@@ -24,8 +24,6 @@ public class PokemonColusseumApplication {
 //				"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/252.png",
 //				"grass");
 
-
-
 	}
 
 }
