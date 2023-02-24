@@ -41,7 +41,7 @@ import { MidbattleComponent } from './components/battle/midbattle/midbattle.comp
     RegisterComponent,
     PokemonComponent,
     PokeoptionsComponent,
-    MidbattleComponent
+    MidbattleComponent,
   ],
   imports: [
     BrowserModule,
