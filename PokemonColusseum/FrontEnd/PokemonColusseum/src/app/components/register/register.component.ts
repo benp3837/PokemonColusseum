@@ -33,7 +33,7 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit(): void {
 
-    //is this an awful way to do the password check? executing a function every 400 millis?
+    //is this a godawful way to do a password check lmaooooo 
     setInterval(()=> { this.passEqualCheck() }, 400);
 
   }

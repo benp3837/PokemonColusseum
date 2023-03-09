@@ -1,4 +1,6 @@
+import { TitleCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Pokemon } from 'src/app/models/pokemon';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { UserService } from 'src/app/services/user.service';
@@ -95,12 +97,12 @@ export class ForestComponent implements OnInit {
     this.ps.addPokemonToDB().subscribe()
  
     this.pokeFound = false; //set this back to false to wipe the options
-    this.infoH5 = "Caught " + this.pokemon.name + "!";
+    this.toast.info("Caught " + this.titlecasePipe.transform(this.pokemon.name) + "!")
     this.us.info.push("caught a wild " + this.pokemon.name + " in the forest")
   }
 
     //we need to INJECT the pokemon service so that we have access to its functions/variables
-    constructor(private ps:PokemonService, private us:UserService) { 
+    constructor(private ps:PokemonService, private us:UserService, private toast:ToastrService, private titlecasePipe:TitleCasePipe) { 
 
     }
 

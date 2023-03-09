@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AccordionModule } from 'ngx-bootstrap/accordion';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { WelcomeComponent } from './components/welcome/welcome.component';
@@ -22,6 +21,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { PokemonComponent } from './components/pokemon/pokemon.component';
 import { PokeoptionsComponent } from './components/pokemon/pokeoptions/pokeoptions.component';
 import { MidbattleComponent } from './components/battle/midbattle/midbattle.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ToastrModule } from 'ngx-toastr';
+import { TitleCasePipe } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -41,17 +43,17 @@ import { MidbattleComponent } from './components/battle/midbattle/midbattle.comp
     RegisterComponent,
     PokemonComponent,
     PokeoptionsComponent,
-    MidbattleComponent,
+    MidbattleComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    AccordionModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot({timeOut: 2000, positionClass: 'toast-bottom-right'})
   ],
-  providers: [],
+  providers: [TitleCasePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

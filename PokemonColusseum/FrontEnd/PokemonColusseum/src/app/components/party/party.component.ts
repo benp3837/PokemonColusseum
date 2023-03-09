@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Party } from 'src/app/models/party';
 import { Pokemon } from 'src/app/models/pokemon';
 import { PartyService } from 'src/app/services/party.service';
@@ -38,7 +39,8 @@ export class PartyComponent implements OnInit {
   selectedParty:number;
 
 
-  constructor(private ps:PartyService, private pks:PokemonService, private us:UserService) { }
+  constructor(private ps:PartyService, private pks:PokemonService, 
+    private us:UserService, private toast:ToastrService) { }
 
   ngOnInit(): void {
     this.getPokemon()
@@ -58,6 +60,8 @@ export class PartyComponent implements OnInit {
       }},
     )
   }
+
+
 
   //ADD & REMOVE FROM PARTY FUNCTIONS---------------------------
 
@@ -93,6 +97,9 @@ export class PartyComponent implements OnInit {
         console.log(data.body)
         this.pokemonHidden = true;
         this.getPokemon();
+      },
+      (error:any) => {
+        this.toast.error(p.name + " is already in this party!")
       }
     )
   }

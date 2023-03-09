@@ -1,4 +1,39 @@
-<div class="buttonDiv">
-    <button class="btn-sm btn-dark">party</button>
-    <button class="btn-sm btn-dark" (click)="release()">{{releaseButton}}</button>
+<div class="grid-container">
+
+    <div class="buttonDiv" [hidden]="partyButtonChosen">
+        <button class="btn-sm btn-dark" (click)="addToParty()">party</button>
+        <button class="btn-sm btn-dark" (click)="release()">{{releaseButton}}</button>
+    </div>
+
+    <!-- <div class="buttonDiv" [hidden]="!partyButtonChosen">
+        <div class="button-holder" *ngFor="let party of parties; let i = index">
+            <button class="btn-sm btn-dark" style="display:inline"(click)="showParties()">
+                <img class="option-pic" *ngIf="party.pokemon1" src="{{party.pokemon1.sprite1}}" alt="">
+                <img class="option-pic" *ngIf="party.pokemon2" src="{{party.pokemon2.sprite1}}" alt="">
+                <img class="option-pic" *ngIf="party.pokemon3" src="{{party.pokemon3.sprite1}}" alt="">
+            </button>
+        </div>
+        <button class="btn-sm btn-dark">cancel</button>
+    </div> -->
 </div>
+
+<!--
+<div class="choose-party" [hidden]="!partyButtonChosen">
+    <div class="parties col-sm-6" *ngFor="let party of parties; let i = index">
+        <div class="party-tube " (click)="chooseParty(i)">
+            <div>
+                <p>{{party.pokemon1.name}}</p>
+                <img src="{{party.pokemon1.sprite1}}" alt=""/>
+            </div>
+            <div *ngIf="party.pokemon2">
+                <p >{{party.pokemon2.name}}</p>
+                <img src="{{party.pokemon2.sprite1}}" alt=""/>
+            </div>
+            <div *ngIf="party.pokemon3">
+                <p >{{party.pokemon3.name}}</p>
+                <img src="{{party.pokemon3.sprite1}}" alt=""/>
+            </div>
+        </div>
+    </div>
+</div>
+-->

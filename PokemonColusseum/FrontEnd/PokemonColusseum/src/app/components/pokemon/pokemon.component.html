@@ -4,12 +4,26 @@
 
     <hr style="border-top: 1px solid #bbb">
 
-    <details style="margin: .5em">
-        <summary>Order Options</summary>
-            <button class="btn-sm btn-dark" style="margin-left: .5em" (click)="alphabetize()">Alphabetical</button>
-            <button class="btn-sm btn-dark" style="margin-left: .5em" (click)="earliest()">Earliest First</button>
-            <button class="btn-sm btn-dark" style="margin-left: .5em" (click)="latest()">Latest First</button>
-    </details>
+    <div class="buttonDiv" style="margin-left: .5em;" [hidden]="hideParties">
+        <h4>Add To Which Party?</h4>
+        <div class="button-holder" *ngFor="let party of parties; let i = index">
+            <button class="btn-sm btn-dark" style="float:left; position:relative; height: 70px;">
+                <img class="option-pic" *ngIf="party.pokemon1" src="{{party.pokemon1.sprite1}}" alt="">
+                <img class="option-pic" *ngIf="party.pokemon2" src="{{party.pokemon2.sprite1}}" alt="">
+                <img class="option-pic" *ngIf="party.pokemon3" src="{{party.pokemon3.sprite1}}" alt="">
+            </button>
+        </div>
+        <button class="btn-sm btn-dark" (click)="showOrHideParties()">cancel</button>
+    </div>
+
+    <div>
+        <details style="margin-left: .5em;"> <!--margin-top: 2.4em;-->
+            <summary>Order Options</summary>
+                <button class="btn-sm btn-dark" style="margin-left: .5em" (click)="alphabetize()">Alphabetical</button>
+                <button class="btn-sm btn-dark" style="margin-left: .5em" (click)="earliest()">Earliest First</button>
+                <button class="btn-sm btn-dark" style="margin-left: .5em" (click)="latest()">Latest First</button>
+        </details>
+    </div>
     
     <!-- There MUST be an easier way to get the pokeoptions displayed for only the poke you click-->
     <!-- But for now we have these nested conditionals and a bunch of TS logic-->
@@ -19,7 +33,7 @@
             <img src="{{poke.sprite1}}" (click) = showPokeOptions(i)>
             <div *ngIf="i === currentPoke">
                 <app-pokeoptions [hidden] = hidePokeOptions [currentPokemon]="poke"
-                (notifyParent) = showPokeOptions($event)></app-pokeoptions>
+                (tellParentHideOptions) = showPokeOptions($event)></app-pokeoptions>
             </div>
         </div>
     </div>
